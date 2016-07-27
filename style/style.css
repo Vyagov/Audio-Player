@@ -1,0 +1,128 @@
+@CHARSET "UTF-8";
+
+body {
+	background-color: #c2c2c2;	
+}
+
+#wrapper {
+    width: 600px;
+    margin: 0 auto;
+    font-family: 'Arial, Helvetica', sans-serif;
+}
+
+#playingSong {
+    height: 420px;
+    margin: 2em 0;
+    border: 1px solid #26272b;
+    border-radius: 1em;
+}
+
+#image {
+    height: 70%;
+    background-color: #26272b;
+    border-radius: 1em 1em 0 0; 
+}
+
+#showingImage {
+    height: 100%;
+    display: table;
+    margin: 0 auto;
+}
+
+#info {
+    height: 30%;
+    background-color: #292a2e;
+    border-radius: 0 0 1em 1em; 
+}
+
+#name {
+    height: 40%;
+    font-size: 1.8em;
+    color: #ccd5d5;
+    text-align: center;
+    padding-top: 0.5em;
+    box-sizing: border-box;
+}
+
+#bar {
+	margin: 0 auto;
+	width: 90%;
+	border: 1px solid #42a50b;
+	border-radius: 0.8em;
+    height: 20%;
+}
+
+#bar>div {
+	background-color: #44a50b;
+	border-radius: 0.8em;
+	width: 30%;
+	height: 100%;
+}
+
+#menu {
+    height: 40%;
+    display: inline-block;
+    width: 100%;
+}
+
+#menu>div {
+	text-align: center;
+	padding-top: 0.5em;
+	box-sizing: border-box;
+	float: left;
+	width: 33.33%;
+	height: 100%;
+}
+
+#timePlaying, #songLength {
+    font-size: 2em;
+    color: #ccd5d5;
+}
+
+#button {
+	color: #ccd5d5;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+button:focus {
+	outline: none;
+}
+
+ul {
+    margin: 0 auto;
+    width: 90%;
+}
+
+li {
+    padding: 1.5em;
+    border: 1px solid #c0c0c0;
+    border-radius: 2em;
+    position: relative;
+    list-style-type: none;
+    background-color: #292a2e;
+}
+
+ul > li > p {
+    display: inline;
+    text-align: left;
+    color: #44a50b;
+    font-size: 1.5em;
+}
+
+ul > li > button {
+    display: inline;
+    position: absolute;
+    right: 0.5em;
+    top: 0;
+    bottom: 0;
+	color: #ccd5d5;
+}
+
