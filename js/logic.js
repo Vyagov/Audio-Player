@@ -29,18 +29,7 @@ function  displaySongs(container, data){
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-	
-	Ajax.request('GET', 'server.php', true, function(response) {
-		var songs = JSON.parse(response);
-	    document.getElementById('result').innerHTML = '';
-	    displaySongs(document.getElementById('result'), songs)
-	});
-	
-});
-
-
-/* function buttonClick(songId){
+function buttonClick(songId){
     if (document.getElementById(songId).className === "fa fa-play fa-2x"){
         document.getElementById(songId).className = "fa fa-pause fa-2x";
         for (var i = 0; i < 9; i++ ){
@@ -55,26 +44,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 }
 
-function seconds2time(seconds) {
-    var hours = Math.floor(seconds / 3600);
-    var minutes = Math.floor((seconds - (hours * 3600)) / 60);
-    var seconds = Math.round(seconds - (hours * 3600) - (minutes * 60));
-    var time = "";
+function formatTime(seconds) {
+    var minutes = Math.floor(seconds / 60);
+    var seconds = Math.round(seconds % 60);
 
-    if (hours != 0) {
-    	time = hours + " : ";
-    }
-    if (minutes != 0 || time !== "") {
-    	minutes = (minutes < 10 && time !== "") ? "0" + minutes : String(minutes);
-    	time += minutes + " : ";
-    }
-    if (time === "") {
-    	time = seconds;
-    }
-    else {
-    	time += (seconds < 10) ? "0" + seconds : String(seconds);
-    }
-    return time;
+    if (minutes < 10) {
+		minutes = '0' + minutes;
+	}
+	
+	if (seconds < 10) {
+		seconds = '0' + seconds;
+	}
+	return (minutes + ' : ' + seconds);
 }
 
 
@@ -94,8 +75,8 @@ function playSong(songId){
     var imgName = 'images/' + imagesLink[songId];
     document.getElementById('showingImage').src = imgName;
     document.getElementById('myAudio').addEventListener("loadeddata", function() {
-        document.getElementById('songLength').innerHTML = seconds2time(this.duration);
-        document.getElementById('timePlaying').innerHTML = seconds2time(this.currentTime);
+        document.getElementById('songLength').innerHTML = formatTime(this.duration);
+        document.getElementById('timePlaying').innerHTML = formatTime(this.currentTime);
     });
     var title = artistName[songId] + ' - ' + albumName[songId];
     document.getElementById('name').innerHTML = title;
@@ -103,5 +84,16 @@ function playSong(songId){
 
 function  pauseSong(){
     document.getElementById('myAudio').pause();
-} */
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+	
+	Ajax.request('GET', 'server.php', true, function(response) {
+		var songs = JSON.parse(response);
+	    document.getElementById('result').innerHTML = '';
+	    displaySongs(document.getElementById('result'), songs)
+	});
+	
+});
+
 
